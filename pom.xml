@@ -10,9 +10,9 @@
     </parent>
     <groupId>com.jlwl</groupId>
     <!-- 导入项目的名称 -->
-    <artifactId>xianshangyiyuanguahaoxitong</artifactId>
+    <artifactId>xianshangyiyuanguahaoxitong-docker</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>xianshangyiyuanguahaoxitong</name>
+    <name>xianshangyiyuanguahaoxitong-docker</name>
     <description>线上医院挂号系统</description>
 
     <properties>
@@ -25,11 +25,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.2.2.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>2.1.1</version>
+            <version>2.2.2</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -88,11 +89,11 @@
             <version>2.0.1.Final</version>
         </dependency>
 
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.5</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>commons-io</groupId>-->
+<!--            <artifactId>commons-io</artifactId>-->
+<!--            <version>2.5</version>-->
+<!--        </dependency>-->
 
 
         <dependency>
@@ -170,13 +171,36 @@
     </dependencies>
 
 
-  <!--  <build>
+    <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.2.2.RELEASE</version> <!-- 显式指定版本 -->
+                <configuration>
+                    <mainClass>com.xianshangyiyuanguahaoxitongApplication</mainClass>
+                    <skip>false</skip>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>repackage</id>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
-    </build>-->
+    </build>
 
 </project>
